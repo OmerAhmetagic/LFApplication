@@ -1,0 +1,77 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@{
+    ViewBag.Title = "Found Items";
+}
+
+<h2>Found Items</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container" style="padding-left:0px; padding-right:0px">
+        <div class="row">
+            <div class="col-md-3">
+                <div id="custom-search-input">
+                    <div class="input-group">
+                        <input type="text" id="searchString" name="searchString" class="form-control input" placeholder="Search by item name..." />
+                        <span class="input-group-btn">
+                            <button class="btn btn-info btn" type="button">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table class="table">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>
+                        @Html.ActionLink("Item Name", "LostFound", new { sortOrder = ViewBag.NameSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Item Location", "LostFound", new { sortOrder = ViewBag.LNameSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Item type", "LostFound", new { sortOrder = ViewBag.BDateSortParm })
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            @*@foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateOfBirth)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateCreated)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }*@
+
+        </table>
+    </div>
+}

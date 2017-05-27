@@ -1,0 +1,136 @@
+﻿@model IEnumerable<LFApplication.Models.Item>
+
+@{
+    ViewBag.Title = "Index";
+}
+<a href="@Url.Action("Index", "Items")">
+    <img alt="Widget View" src="~/Content/LandingPage/images/lupa1.jpg" style="width:100px; position:absolute; right:20px;">
+</a>
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        th {
+            background-color: #7dbcdc;
+            color: white;
+        }
+    </style>
+</head>
+
+<br />
+
+<h3>List of Found Items</h3>
+<br />
+
+
+
+<p style="text-decoration:underline; float:right; " ;>
+    @Html.ActionLink("Create New", "Create2", null, new { @class = "btn btn-success" })
+
+
+</p>
+
+
+@using (@Html.BeginForm("Index", "Items", FormMethod.Get))
+{
+    @*HTML helper way of input for search
+        @Html.TextBox("searchString",null, new {id = "custom-search-input", @class = "form-control input"});*@
+    <div class="container" style="padding-left:0px; padding-right:0px; margin-top: 0px">
+        <div class="row">
+            <div class="col-md-3 col-lg-4 col-sm-4 col-xs-6">
+                <div id="custom-search-input">
+                    <div class="input-group">
+                        <input type="text" id="SearchString" name="SearchString" class="form-control input" placeholder="Search by item name..." />
+                        <span class="input-group-btn">
+                            <button class="btn btn-info btn" type="button">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<div style="padding-bottom:50px">
+    <table style="font-size:20px; color:black">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CommentCutOut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th style="color:#335381"></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name, new { @style = "text-transform:capitalize; font-size:48" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tag)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Image)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CommentCutOut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td style="color:#335381; float:right">
+                    @Html.ActionLink("Details", "Details", null, new { id = item.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

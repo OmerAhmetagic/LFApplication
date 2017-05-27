@@ -1,0 +1,64 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@{
+    ViewBag.Title = "Lost items";
+}
+
+<h2>Lost items</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+
+        <div>
+            <label for="CompanyName">Item Name:</label>
+            <input type="text" name="CompanyName"
+                   value="@Request.Form["companyname"]" />
+            @Html.ValidationMessage("companyname")
+        </div>
+
+        <br />
+        <div>
+            <label for="ContactName">Item location:</label>
+            <input type="text" name="ContactName"
+                   value="@Request.Form["contactname"]" />
+            @Html.ValidationMessage("contactname")
+        </div>
+
+        <br />
+        <div>
+            <label for="Employees">Item type:</label>
+            <select>
+                <option value="volvo">Keys</option>
+                <option value="saab">Wallet</option>
+                <option value="opel">Backpack</option>
+                <option value="audi">ID</option>
+            </select>
+        </div>
+
+        <br />
+        <div>
+            <label for="Employees">Item picture:</label>
+            <form action="/action_page.php">
+                <input type="file" name="pic" accept="image/*">
+            </form>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

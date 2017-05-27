@@ -1,0 +1,82 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@{
+    ViewBag.Title = "I have lost...";
+}
+
+<h2>I have found...</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+
+    <body>
+        <div class="container">
+
+            <section>
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="description" content="Login and Registration Form with HTML5 and CSS3" />
+                <meta name="keywords" content="html5, css3, form, switch, animation, :target, pseudo-class" />
+                <meta name="author" content="Codrops" />
+                <link rel="shortcut icon" href="../favicon.ico">
+                <link rel="stylesheet" type="text/css" href="~/Content/LandingPage/css/demo.css" />
+                <link rel="stylesheet" type="text/css" href="~/Content/LandingPage/css/styleinput.css" />
+                <link rel="stylesheet" type="text/css" href="~/Content/LandingPage/css/animate-custom.css" />
+                <div style="padding-top:50px"></div>
+                <div id="container_demo">
+                    <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+                    <a class="hiddenanchor" id="toregister"></a>
+                    <a class="hiddenanchor" id="tologin"></a>
+                    <div id="wrapper">
+                        <div id="login" class="animate form">
+                            <form action="mysuperscript.php" autocomplete="on">
+                                <h1>I have lost...</h1>
+                                * Required fields
+                                <p>
+                                    <br />
+                                    <label for="contact" class="uname" data-icon=""> Contact information *</label>
+                                    <input id="username" name="username" required="required" type="text" placeholder="Example: omer@aga.ba" />
+                                </p>
+                                <p>
+                                    <label for="name" class="uname" data-icon=""> Item name *</label>
+                                    <input id="username" name="username" required="required" type="text" placeholder="Example: Wallet" />
+                                </p>
+                                <p>
+                                    <label for="location" class="youpasswd" data-icon=""> Item location *</label>
+                                    <input id="password" name="password" required="required" type="password" placeholder="Example: Sarajevo" />
+                                </p>
+                                <p>
+                                    <label for="type">Item type *</label><br />
+                                    <select>
+                                        <option value="volvo">Keys</option>
+                                        <option value="saab">Wallet</option>
+                                        <option value="opel">Backpack</option>
+                                        <option value="audi">Moble phone</option>
+                                        <option value="audi">ID</option>
+                                        <option value="audi">Other</option>
+                                    </select>
+                                </p>
+                                <p>
+                                    <label for="Employees">Item picture</label>
+                                    <input type="file" name="pic" accept="image/*">
+                                </p>
+                                <p class="login button">
+                                    <input type="submit" value="Submit" />
+                                </p>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+}
